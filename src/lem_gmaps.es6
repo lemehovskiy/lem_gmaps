@@ -18,13 +18,110 @@
         constructor(element, options) {
 
             let self = this;
-            
-            self.settings = $.extend({
-               
+
+            self.$element = $(element);
+
+            self.settings = $.extend(true, {
+                // lat_shift: 0,
+                map_options: {
+                    center: {lat: 42.877742, lng: -97.380979},
+                    zoom: 1,
+                    scrollwheel: false,
+                    maxZoom: 15,
+                    styles: []
+                },
+                marker_icon: {
+                    path: 'M10.9,0C4.9,0,0,4.9,0,10.9c0,7,9.8,24.7,10.9,24.7c1.2,0,10.9-17.5,10.9-24.7C21.8,4.9,16.9,0,10.9,0z M10.9,15.5c-2.5,0-4.6-2-4.6-4.6s2-4.6,4.6-4.6c2.5,0,4.6,2,4.6,4.6S13.4,15.5,10.9,15.5z',
+                    fillColor: '#882929',
+                    fillOpacity: 1,
+                    scale: 1.1,
+                    strokeWeight: 0,
+                    anchor: new google.maps.Point(20, 20)
+                }
             }, options);
 
-            let $element = $(element);
-            
+
+            self.data_options = self.$element.data('lem-gmap');
+            self.settings = $.extend(true, self.settings, self.data_options);
+
+            console.log(self.data_options);
+
+
+
+            self.map;
+
+            self.bounds;
+
+            self.google_map_markers = [];
+
+            self.markers_position = self.$element.data('lem-gmap-markes');
+
+
+            self.init_map();
+
+        }
+
+
+        init_map() {
+
+            let self = this;
+
+            self.map = new google.maps.Map(self.$element[0], self.settings.map_options);
+
+            self.add_markers(self.markers_position);
+            self.marker_bounds(self.google_map_markers);
+
+        }
+
+
+
+        marker_bounds(markers) {
+
+            let self = this;
+
+            let bounds = new google.maps.LatLngBounds();
+
+
+            markers.forEach(function (markerObj) {
+                bounds.extend(markerObj.marker.position);
+            });
+
+            // if (self.settings.lat_shift) {
+            //     if (bounds.getNorthEast().equals(bounds.getSouthWest())) {
+            //         var extendPoint = new google.maps.LatLng(bounds.getNorthEast().lat() + self.settings.lat_shift, bounds.getNorthEast().lng());
+            //         bounds.extend(extendPoint);
+            //     }
+            // }
+
+            self.map.fitBounds(bounds);
+
+        }
+
+
+
+        add_markers(markers) {
+
+            let self = this;
+
+            markers.forEach(function (marker, i) {
+
+                let lat = marker[0];
+                let lng = marker[1];
+
+                let google_map_marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(lat, lng),
+                    icon: self.settings.marker_icon,
+                    map: self.map
+                });
+
+                // save all markers in array
+                self.google_map_markers.push({
+                    marker: google_map_marker,
+                    lat: lat,
+                    lng: lng
+                });
+
+            });
         }
     }
 
