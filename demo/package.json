@@ -1,0 +1,36 @@
+{
+  "name": "lem_gmaps",
+  "version": "1.0.0",
+  "description": "Google maps jQuery initializer",
+  "main": "build/lem_gmaps.js",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.2.3",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "load-google-maps-api": "^1.0.1",
+    "lodash": "^4.17.4",
+    "postcss-loader": "^2.0.9",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jQuery",
+    "plugin",
+    "Google maps"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lemehovskiy/lem_gmaps"
+  },
+  "author": "lemehovskiy",
+  "license": "ISC"
+}
