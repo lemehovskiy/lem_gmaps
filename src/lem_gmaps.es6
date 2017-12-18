@@ -47,20 +47,18 @@
             self.data_options = self.$element.data('lem-gmap');
             self.settings = $.extend(true, self.settings, self.data_options);
 
-            console.log(self.settings);
-
 
             self.map;
             self.bounds;
             self.google_map_markers = [];
 
 
-            self.init_map();
+            self.init();
 
         }
 
 
-        init_map() {
+        init() {
 
             let self = this;
 
@@ -79,7 +77,6 @@
 
             let bounds = new google.maps.LatLngBounds();
 
-
             markers.forEach(function (markerObj) {
                 bounds.extend(markerObj.marker.position);
             });
@@ -94,8 +91,7 @@
             self.map.fitBounds(bounds);
 
         }
-
-
+        
 
         add_markers(markers) {
 

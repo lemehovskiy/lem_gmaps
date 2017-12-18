@@ -52,18 +52,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             self.data_options = self.$element.data('lem-gmap');
             self.settings = $.extend(true, self.settings, self.data_options);
 
-            console.log(self.settings);
-
             self.map;
             self.bounds;
             self.google_map_markers = [];
 
-            self.init_map();
+            self.init();
         }
 
         _createClass(LemGmaps, [{
-            key: 'init_map',
-            value: function init_map() {
+            key: 'init',
+            value: function init() {
 
                 var self = this;
 
