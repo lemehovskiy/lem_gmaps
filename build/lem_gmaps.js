@@ -27,6 +27,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             self.$element = $(element);
 
+            //extend by function call
             self.settings = $.extend(true, {
                 // lat_shift: 0,
                 map_options: {
@@ -43,21 +44,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     scale: 1.1,
                     strokeWeight: 0,
                     anchor: new google.maps.Point(20, 20)
-                }
+                },
+                markers: []
             }, options);
 
+            //extend by data options
             self.data_options = self.$element.data('lem-gmap');
             self.settings = $.extend(true, self.settings, self.data_options);
 
-            console.log(self.data_options);
+            console.log(self.settings);
 
             self.map;
-
             self.bounds;
-
             self.google_map_markers = [];
-
-            self.markers_position = self.$element.data('lem-gmap-markes');
 
             self.init_map();
         }
@@ -70,7 +69,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                 self.map = new google.maps.Map(self.$element[0], self.settings.map_options);
 
-                self.add_markers(self.markers_position);
+                self.add_markers(self.settings.markers);
                 self.marker_bounds(self.google_map_markers);
             }
         }, {
@@ -102,20 +101,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                 markers.forEach(function (marker, i) {
 
-                    var lat = marker[0];
-                    var lng = marker[1];
+                    var marker_icon = self.settings.marker_icon;
+
+                    //extend individual marker options
+                    $.extend(true, marker_icon, marker.icon);
 
                     var google_map_marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(lat, lng),
-                        icon: self.settings.marker_icon,
+                        position: new google.maps.LatLng(marker.lat, marker.lng),
+                        icon: marker_icon,
                         map: self.map
                     });
 
                     // save all markers in array
                     self.google_map_markers.push({
                         marker: google_map_marker,
-                        lat: lat,
-                        lng: lng
+                        lat: marker.lat,
+                        lng: marker.lng
                     });
                 });
             }

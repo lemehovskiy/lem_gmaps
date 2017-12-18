@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="img-col">
-                    <div class="img-wrap google-map" data-lem-gmap='{"marker_icon": {"fillColor": "#000000"}}' data-lem-gmap-markes='[[46.904767, -96.797955]]'>
+                    <div class="img-wrap google-map" data-lem-gmap='{"markers": [{"lat": 46.904767, "lng": -96.797955}, {"lat": 42.163677, "lng": -72.632944, "icon": {"fillColor": "#0000ff"}}]}'>
 
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="img-col">
-                    <div class="img-wrap google-map" data-lem-gmap='{"marker_icon": {"fillColor": "#0000ff"}}' data-lem-gmap-markes='[[46.904767, -96.797955], [42.163677, -72.632944]]'>
+                    <div class="img-wrap google-map">
 
                     </div>
                 </div>
@@ -117,6 +117,20 @@
 
     $('.google-map').lemGmaps({
 
+        markers: [
+            {
+                "lat": 44.530436,
+                "lng": -103.887630
+            },
+            {
+                "lat": 55.170730,
+                "lng": -118.819305
+            }
+
+        ],
+        marker_icon: {
+            fillColor: '#ff00ff'
+        },
         map_options: {
             styles: [
                 {
