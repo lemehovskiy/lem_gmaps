@@ -4,9 +4,13 @@ const lem_gmaps = require("../build/js/lem_gmaps");
 
 require("./sass/style.scss");
 
-$(document).ready(function () {
 
-    debugger;
+if (NODE_ENV == 'development') {
+    console.log('asdf');
+}
+
+
+$(document).ready(function () {
 
     load_google_maps_api({key: "AIzaSyAkbu04rf_WBmWQhuo9c5K8DV1jrsK3Hlw"}).then(function (googleMaps) {
         

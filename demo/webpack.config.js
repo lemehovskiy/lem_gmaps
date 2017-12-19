@@ -1,6 +1,7 @@
 const autoprefixer = require('autoprefixer');
 
 const NODE_ENV = process.env.NODE_ENV || "development";
+const webpack = require('webpack');
 
 module.exports = {
     watch: NODE_ENV == 'development',
@@ -56,11 +57,17 @@ module.exports = {
         ]
     },
 
-    devtool: NODE_ENV == 'development' ? "source-map" : null,
+    devtool: NODE_ENV == 'development' ? "source-map" : false,
 
     resolve: {
         alias: {
             jquery: "jquery/src/jquery"
         }
-    }
+    },
+
+    plugins: [
+        new webpack.DefinePlugin({
+            NODE_ENV: JSON.stringify(NODE_ENV)
+        })
+    ]
 };

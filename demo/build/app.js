@@ -6960,9 +6960,11 @@ var lem_gmaps = __webpack_require__(104);
 
 __webpack_require__(105);
 
-$(document).ready(function () {
+if (false) {
+    console.log('asdf');
+}
 
-    debugger;
+$(document).ready(function () {
 
     load_google_maps_api({ key: "AIzaSyAkbu04rf_WBmWQhuo9c5K8DV1jrsK3Hlw" }).then(function (googleMaps) {
 
@@ -12818,4 +12820,3 @@ module.exports = function (css) {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=app.js.map
