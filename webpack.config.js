@@ -2,7 +2,7 @@ module.exports = {
     watch: true,
     entry: './src/lem_gmaps.es6',
     output: {
-        filename: 'build/js/lem_gmaps.js'
+        filename: 'build/lem_gmaps.js'
     },
     module: {
         rules: [
