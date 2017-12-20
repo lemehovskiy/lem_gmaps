@@ -25,15 +25,12 @@ module.exports = {
                 test: /\.scss$/,
                 use: [
                     {
-                        loader: "style-loader",
-                        options: {
-                            convertToAbsoluteUrls: true
-                        }
+                        loader: "style-loader"
                     },
                     {
                         loader: "css-loader",
                         options: {
-                            sourceMap: true
+                            sourceMap: NODE_ENV == 'development' ? "source-map" : false
                         }
                     },
                     {
