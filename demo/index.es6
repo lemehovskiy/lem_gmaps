@@ -1,6 +1,6 @@
 const jquery = require("jquery");
 const load_google_maps_api = require("load-google-maps-api");
-const lem_gmaps = require("../build/js/lem_gmaps");
+const lem_gmaps = require("../build/lem_gmaps");
 
 require("./sass/style.scss");
 

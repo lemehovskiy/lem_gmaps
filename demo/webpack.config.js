@@ -30,7 +30,7 @@ module.exports = {
                     {
                         loader: "css-loader",
                         options: {
-                            sourceMap: NODE_ENV == 'development' ? "source-map" : false
+                            sourceMap: NODE_ENV == 'development'
                         }
                     },
                     {

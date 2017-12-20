@@ -1,8 +1,8 @@
 {
-  "name": "lem_gmaps",
+  "name": "lem_gmaps_demo",
   "version": "1.0.0",
   "description": "Google maps jQuery initializer",
-  "main": "build/lem_gmaps.js",
+  "main": "build/app.js",
   "dependencies": {
     "jquery": "^3.2.1"
   },
