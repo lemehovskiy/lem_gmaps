@@ -4,6 +4,7 @@
   "description": "Google maps jQuery initializer",
   "main": "build/app.js",
   "dependencies": {
+    "es6-promise-polyfill": "^1.2.0",
     "jquery": "^3.2.1"
   },
   "devDependencies": {
