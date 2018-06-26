@@ -1,5 +1,3 @@
-const Promise = require('es6-promise-polyfill').Promise;
-
 const jquery = require("jquery");
 const load_google_maps_api = require("load-google-maps-api");
 const lem_gmaps = require("../build/lem_gmaps");

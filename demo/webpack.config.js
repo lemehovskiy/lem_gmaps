@@ -5,7 +5,7 @@ const webpack = require('webpack');
 
 module.exports = {
     watch: NODE_ENV == 'development',
-    entry: ['./index.es6'],
+    entry: ['babel-polyfill', './index.es6'],
     output: {
         filename: './build/app.js'
     },
